@@ -165,7 +165,7 @@ export default function UploadComponent() {
       if (!sasToken || !accountName || !containerName || !folderPath) {
         throw toast.error("Azure config missing")
       }
-  
+
       const blobName = `${folderPath}/${selectedOption}/${file.name}`
       const url = `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sasToken}`
   
@@ -204,12 +204,12 @@ export default function UploadComponent() {
   }
 
   const handleExecuteClick = async () => {
-    const validNotebooks = ['Google', 'Meta', 'Neilsen']
+    const validNotebooks = ['Google', 'Meta', 'Neilsen', 'Amazon', 'Walmart', 'Circana', 'LinkedIn', 'Tiktok', 'Snapchat', 'Youtube', 'Twitter']
     if (!validNotebooks.includes(selectedDataId)) {
       toast.error(`Notebook for source "${selectedDataId}" not found.`)
       return
     }
-    setRunStatusLoading(true); // Disable button immediately on click
+    setRunStatusLoading(true);
     try {
       const response = await fetch('http://localhost:3001/run-notebook', {
         method: 'POST',
@@ -218,7 +218,8 @@ export default function UploadComponent() {
         },
         body: JSON.stringify({
           fileName: file.name,
-          source: selectedDataId,
+          // source: selectedDataId,
+          source: "Meta",
         }),
       });
   
@@ -494,6 +495,14 @@ export default function UploadComponent() {
                 <option value="google_ads" data-id="Google">Google Ads</option>
                 <option value="meta" data-id="Meta">Meta</option>
                 <option value="neilsen" data-id="Neilsen">Neilsen</option>
+                <option value="Amazon" data-id="Amazon">Amazon</option>
+                <option value="Walmart" data-id="Walmart">Walmart</option>
+                <option value="Circana" data-id="Circana">Circana</option>
+                <option value="LinkedIn" data-id="LinkedIn">LinkedIn</option>
+                <option value="Tiktok" data-id="Tiktok">Tiktok</option>
+                <option value="Snapchat" data-id="Snapchat">Snapchat</option>
+                <option value="Youtube" data-id="Youtube">Youtube</option>
+                <option value="Twitter" data-id="Twitter">Twitter</option>
               </select>
             </div>
             <div
