@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mdcap.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_695ab18cc5164100b7c85cb8751f4cc6 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6213d79fde7748829df56ceff7e27d52 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_b9af596e296d4d399daf17648b1b6d99 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_5463932fda2445c3b32642a11ca455ed }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mdcap.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_695ab18cc5164100b7c85cb8751f4cc6 }}/MDC:${{ github.sha }}
+        tags: mdcap.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b9af596e296d4d399daf17648b1b6d99 }}/mdc:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'c5imdcapp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b2efc36ebbde4ac4b1a74378f15bec5c }}
-        images: 'mdcap.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_695ab18cc5164100b7c85cb8751f4cc6 }}/MDC:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4305e69ad83a4801864fcda19cd6d644 }}
+        images: 'mdcap.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b9af596e296d4d399daf17648b1b6d99 }}/mdc:${{ github.sha }}'
