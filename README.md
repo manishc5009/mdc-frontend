@@ -1,3 +1,44 @@
+# 📊 MDC Application
+
+MDC Application is a data processing web platform built with **React.js** and **Node.js**, integrated with **Azure Storage** and **Databricks** to automate Excel-based workflows. Users can upload Excel files, trigger Databricks notebooks based on file context, and download the processed output with ease.
+
+---
+
+## 🚀 Features
+
+- ✅ Upload Excel files through a simple UI
+- ☁️ Automatically uploads files to Azure Storage
+- 🔍 Identifies matching Databricks notebooks for the uploaded file
+- ⚙️ Triggers execution of related Databricks notebooks
+- 📥 Returns processed results for user download
+- 🧠 Handles data workflow automation with cloud scalability
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology          |
+| ------------ | ------------------- |
+| Frontend     | React.js            |
+| Backend      | Node.js (Express)   |
+| Cloud Storage| Azure Blob Storage  |
+| Processing   | Azure Databricks    |
+| File Format  | Excel (.xlsx)       |
+
+---
+
+
+## 🔧 Setup Instructions
+
+### Prerequisites
+
+- Node.js & npm
+- Azure Storage Account
+- Azure Databricks Workspace
+- Databricks Token (for API access)
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
